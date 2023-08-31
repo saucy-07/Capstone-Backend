@@ -28,7 +28,7 @@ class Users{
         emailAddress,
         proileUrl
         FROM Users
-        WHERE userID = ${req.params.id};
+        WHERE userID = ${req.params.id}; 
         `
         db.query(query, (err, results)=>{
             if(err) throw err
@@ -43,7 +43,11 @@ class Users{
         const data = req.body
         data.userPass = await hash(data.userPass, 15)
         const user = {
+            firstName: data.firstName,
+            lastName: data.lastName,
+            gender: data.gender,
             emailAddress: data.emailAddress,
+            profileUrl: data.profileUrl,
             userPass: data.userPass
         }
         const query = `
@@ -64,7 +68,7 @@ class Users{
         const query = `
         UPDATE Users
         SET ?
-        WHERE UserID = ?
+        WHERE userID = ?
         `
         db.query(query, [req.body, req.params.id], (err)=> {
             if(err) throw err
