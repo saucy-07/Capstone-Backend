@@ -5,12 +5,12 @@ const port = +process.env.PORT || 3000
 const cors = require('cors')
 
 app.use(express.static('./static'))
+app.use(cors())
 app.use(
     express.urlencoded({
         extended: false
     }),
-    routes,
-    cors()
+    routes
 )
 routes.get('./controller/index.js', (req, res) =>{
     res.sendFile(path.resolve(__dirname, './static/html/index.html'))
