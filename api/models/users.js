@@ -41,9 +41,8 @@ class Users{
     }
     login(req, res){
     }
-    async register(req, res){
+    register(req, res){
         const data = req.body
-        data.userPass = await hash(data.userPass, 15)
         const user = {
             firstName: data.firstName,
             lastName: data.lastName,
