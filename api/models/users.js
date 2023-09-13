@@ -9,7 +9,8 @@ class Users{
         lastName,
         gender,
         emailAddress,
-        proileUrl
+        profileUrl,
+        userPass
         FROM Users;
         `
         db.query(query, (err, results)=>{
@@ -26,7 +27,8 @@ class Users{
         lastName,
         gender,
         emailAddress,
-        proileUrl
+        profileUrl,
+        userPass
         FROM Users
         WHERE userID = ${req.params.id}; 
         `
