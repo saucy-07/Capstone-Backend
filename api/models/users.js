@@ -53,8 +53,8 @@ class Users {
           res.status(500).json({ error: "Internal server error" });
         } else {
           const token = jwt.sign(
-            { userID: results.insertId, emailAdd: user.emailAdd },
-            process.env.secret_key,
+            { userID: results.insertId, emailAddress: user.emailAddress },
+            process.env.SECRET_KEY,
             {
               expiresIn: "1h",
             }
