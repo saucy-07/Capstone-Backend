@@ -53,9 +53,9 @@ class Users{
             userPass: data.userPass
         }
         const query = `
-        INSERT INTO Users
-        SET ?;
-        `
+        INSERT INTO Users (firstName, lastName, gender, emailAddress, profileUrl, userPass)
+        VALUES (?, ?, ?, ?, ?, ?)
+        `;
         db.query(query, [data], (err)=> {
             if(err) throw err
             let token = createToken(user)
