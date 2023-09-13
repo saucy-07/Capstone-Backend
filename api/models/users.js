@@ -1,6 +1,6 @@
 const db = require("../config");
 const { hash, compare } = require("bcrypt");
-const { createToken } = require("../middleware/authenticateUser");
+const { createToken } = require("../middleware/AuthenticateUser");
 const express = require("express");
 const cookieParser = require("cookie-parser");
 const jwt = require("jsonwebtoken");
